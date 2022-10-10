@@ -1,24 +1,15 @@
 "use strict";
 require("dotenv").config();
-
+const connectDB = require('./config/db');
 const express = require("express");
 const cors = require("cors");
 const helmet = require("helmet");
+connectDB();
 
-var allowedOrigins = ["https://example.com"];
-/* var corsOptions = {
-  origin: function (origin, callback) {
-    if (whitelist.indexOf(origin) !== -1) {
-      callback(null, true)
-    } else {
-      callback(new Error('Operation not allowed'))
-    }
-  }
-} */
 
 const app = express();
 
-app.use(helmet());
+app.use(express.json({ extended: false }));
 /* app.use(cors(corsOptions)); */
 
 module.exports = app;
