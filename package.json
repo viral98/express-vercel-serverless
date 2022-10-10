@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Express on Vercel",
   "scripts": {
-    "dev": "nodemon app.js"
+    "dev": "nodemon app.js",
+    "production": "node app.js"
   },
   "dependencies": {
     "config": "^3.3.8",
