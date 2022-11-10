@@ -43,7 +43,7 @@ router.post('/', (req, res) => {
 // @description Update book
 // @access Public
 router.put('/:id', (req, res) => {
-  Book.findByIdAndUpdate(req.params.id, req.body)
+  Book.findByIdAndUpdate(req.params.id, req.body, { new: true })
     .then(book => res.json({ data: book }))
     .catch(err =>
       res.status(400).json({ error: 'Unable to update the Database' })
