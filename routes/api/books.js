@@ -34,7 +34,6 @@ router.get('/:id', (req, res) => {
 // @description add/save book
 // @access Public
 router.post('/', (req, res) => {
-  console.log(req.body);
   Book.create(req.body)
     .then(book => res.json({ data: book }))
     .catch(err => res.status(400).json({ error: err.message }));
@@ -45,7 +44,7 @@ router.post('/', (req, res) => {
 // @access Public
 router.put('/:id', (req, res) => {
   Book.findByIdAndUpdate(req.params.id, req.body)
-    .then(book => res.json({ msg: 'Updated successfully' }))
+    .then(book => res.json({ data: book }))
     .catch(err =>
       res.status(400).json({ error: 'Unable to update the Database' })
     );
